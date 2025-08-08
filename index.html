@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>抛硬币</title>
+    <title>YES or NO</title>
     <link rel="stylesheet" href="coin_flip_decision.css">
 </head>
 <body>
     <div class="mobile-container">
-    <h1>抛硬币</h1>
-    <input type="text" id="decisionItem" placeholder="输入需要决定的事项">
-    <input type="number" id="flipCount" placeholder="输入抛硬币的次数" min="1">
+    <h1>YES or NO</h1>
+    <input type="text" id="decisionItem" placeholder="输入想知道答案的问题">
+    <input type="number" id="flipCount" placeholder="输入想要请求天意的次数" min="1">
     <button id="confirmBtn">确认</button>
     <div id="resultCard" style="display: none;">
         <h2 id="itemDisplay"></h2>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <!-- 移除硬币下方的文字结果 -->
-        <p class="small-text">正面: <span id="headsCount"></span> 次 / 反面: <span id="tailsCount"></span> 次</p>
+        <p class="small-text">YES: <span id="headsCount"></span> 次 / NO: <span id="tailsCount"></span> 次</p>
     </div>
 
     <div id="historySection">

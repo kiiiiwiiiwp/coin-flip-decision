@@ -29,9 +29,9 @@ function displayHistory() {
                 <span class="history-date">${item.date}</span>
             </div>
             <div class="history-item-content">
-                <p><strong>决策事项:</strong> ${item.decisionItem}</p>
-                <p><strong>投掷次数:</strong> ${item.flipCount}</p>
-                <p><strong>结果:</strong> ${item.winner}（正面 ${item.heads} 次, 反面 ${item.tails} 次）</p>
+                <p><strong>问题:</strong> ${item.decisionItem}</p>
+                <p><strong>次数:</strong> ${item.flipCount}</p>
+                <p><strong>结果:</strong> ${item.winner}（YES ${item.heads} 次, NO ${item.tails} 次）</p>
             </div>
         `;
         historyList.appendChild(listItem);

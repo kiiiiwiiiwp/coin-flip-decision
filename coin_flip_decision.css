@@ -190,11 +190,17 @@ button {
         border-radius: 4px;
     }
     
+    /* 历史控件容器样式 */
+    .history-controls {
+        margin-bottom: 10px; /* 缩小与历史记录之间的间距 */
+    }
+
     /* 清除历史记录按钮特殊样式 */
     #clearHistoryBtn {
         width: auto;
         background-color: #ff4d4d;
         display: inline-block;
+        margin-top: 5px;
     }
     
     /* 确保历史控件容器在移动端也保持靠右对齐 */
