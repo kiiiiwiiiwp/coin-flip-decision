@@ -223,74 +223,29 @@ button:hover {
     margin: 5px 0;
 }
 
-/* 输入区布局调整 */
+/* 表单输入区域居中 + 适配手机 */
 .input-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.input-group input {
-    flex: 1;
-    min-width: 200px;
-    max-width: 300px;
-}
-
-.input-group button {
-    white-space: nowrap;
-}
-
-/* 手机端适配 */
-@media (max-width: 600px) {
-    .input-group {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .input-group input,
-    .input-group button {
-        width: 100%;
-        max-width: none;
-    }
-
-    #resultCard {
-        margin-top: 30px;
-        padding: 15px;
-        min-height: 60vh;
-    }
-
-    .coin-container {
-        height: 120px;
-    }
-
-    .coin {
-        width: 40vw;
-        height: 40vw;
-        max-width: 120px;
-        max-height: 120px;
-    }
-
-    .input-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  margin: 0 auto;
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 
 .input-group input,
 .input-group button {
-  flex: 1 1 100%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   box-sizing: border-box;
-  font-size: 16px; /* 防止 iOS 自动放大 */
+  font-size: 16px; /* 防止 iOS 自动放大页面 */
 }
 
 @media (min-width: 601px) {
   .input-group {
     flex-wrap: nowrap;
+    justify-content: center;
   }
 
   .input-group input {
@@ -302,10 +257,4 @@ button:hover {
     flex: 0 0 auto;
     white-space: nowrap;
   }
-}
-
-
-    #historySection {
-        margin-top: 60px;
-    }
 }
