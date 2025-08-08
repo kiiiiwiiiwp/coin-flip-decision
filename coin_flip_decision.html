@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抛硬币</title>
+    <link rel="stylesheet" href="coin_flip_decision.css">
+</head>
+<body>
+    <h1>抛硬币</h1>
+    <input type="text" id="decisionItem" placeholder="输入需要决定的事项">
+    <input type="number" id="flipCount" placeholder="输入抛硬币的次数" min="1">
+    <button id="confirmBtn">确认</button>
+    <div id="resultCard" style="display: none;">
+        <h2 id="itemDisplay"></h2>
+        <div id="majorityResult"></div>
+        <p class="small-text">正面: <span id="headsCount"></span> 次 / 反面: <span id="tailsCount"></span> 次</p>
+    </div>
+
+    <div id="historySection">
+        <h2>历史记录</h2>
+        <div id="historyContainer"></div>
+    </div>
+    <script src="coin_flip_decision.js"></script>
+</body>
+</html>

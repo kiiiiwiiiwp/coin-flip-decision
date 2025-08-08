@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.small-text {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 15px;
+}
+
+#majorityResult {
+    font-size: 3em; /* 增大字体 size */
+    font-weight: bold;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+.yes {
+    color: #4CAF50; /* 绿色 */
+}
+
+.no {
+    color: #f44336; /* 红色 */
+}
+
+.tie {
+    color: #ff9800; /* 橙色 */
+}
+
+input {
+    padding: 8px;
+    margin: 10px 5px;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#resultCard {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#historySection {
+    margin-top: 40px;
+}
+
+#historyContainer {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.history-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.history-index {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.history-date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.history-item-content {
+    text-align: left;
+}
+
+.history-item-content p {
+    margin: 5px 0;
+}
