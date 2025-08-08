@@ -137,18 +137,68 @@ button {
     cursor: pointer;
 }
 
+/* 统一宽度类 */
+.uniform-width {
+    width: calc(100% - 36px);
+    box-sizing: border-box;
+}
+
 /* 移动端适配 */
 @media (max-width: 600px) {
+    /* 使用统一容器包裹所有元素 */
+    .mobile-container {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    
+    /* 重置基础样式 */
+    input, button, #resultCard, #historyContainer {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 10px 0;
+    }
+    
     input {
-        display: block;
-        margin: 10px auto;
-        width: 90%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
     }
     
     button {
-        display: block;
-        margin: 10px auto;
-        width: 90%;
+        padding: 12px;
+        border: 1px solid #4CAF50;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 4px;
+    }
+    
+    /* 清除历史记录按钮特殊样式 */
+    #clearHistoryBtn {
+        width: auto;
+        background-color: #ff4d4d;
+        display: inline-block;
+    }
+    
+    /* 确保历史控件容器在移动端也保持靠右对齐 */
+    .history-controls {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+    
+    /* 结果卡片和历史容器样式 */
+    #resultCard, #historyContainer {
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    
+    /* 确保表单输入区域正确布局 */
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 

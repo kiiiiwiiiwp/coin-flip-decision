@@ -159,6 +159,12 @@ function clearHistory() {
         decisionHistory = [];
         localStorage.removeItem('coinFlipHistory');
         displayHistory();
+        
+        // 隐藏结果卡片
+        const resultCard = document.getElementById('resultCard');
+        if (resultCard) {
+            resultCard.style.display = 'none';
+        }
     }
 }
 
