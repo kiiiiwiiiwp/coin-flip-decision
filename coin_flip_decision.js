@@ -128,15 +128,12 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
 
         if (heads > tails) {
             // 设置硬币最终朝向为正面（绿色，显示YES）
-            coin.style.transform = 'rotateY(0deg)';
             coin.classList.add('heads');
         } else if (tails > heads) {
             // 设置硬币最终朝向为反面（红色，显示NO）
-            coin.style.transform = 'rotateY(180deg)';
             coin.classList.add('tails');
         } else {
             // 平局时显示问号
-            coin.style.transform = 'rotateY(0deg)';
             coin.classList.add('tie');
         }
 
