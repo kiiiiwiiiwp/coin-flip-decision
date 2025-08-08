@@ -130,11 +130,26 @@ input {
 }
 
 button {
-    padding: 10px 20px;
+    padding: 8px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+}
+
+/* 移动端适配 */
+@media (max-width: 600px) {
+    input {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+    }
+    
+    button {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+    }
 }
 
 button:hover {
