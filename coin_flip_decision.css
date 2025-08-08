@@ -273,6 +273,38 @@ button:hover {
         max-height: 120px;
     }
 
+    .input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input-group input,
+.input-group button {
+  flex: 1 1 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 16px; /* 防止 iOS 自动放大 */
+}
+
+@media (min-width: 601px) {
+  .input-group {
+    flex-wrap: nowrap;
+  }
+
+  .input-group input {
+    flex: 1 1 auto;
+    max-width: 300px;
+  }
+
+  .input-group button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+
+
     #historySection {
         margin-top: 60px;
     }
