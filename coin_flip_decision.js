@@ -79,6 +79,11 @@ function handleConfirmClick() {
     resultCard.style.display = 'block';
     document.getElementById('itemDisplay').textContent = decisionItem;
 
+    // 立即设置日期
+    const now = new Date();
+    const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+    document.getElementById('resultDate').textContent = formattedDate;
+
     const coin = document.getElementById('coin');
     // 完全重置硬币状态
     // 1. 移除过渡动画
@@ -120,6 +125,7 @@ function handleConfirmClick() {
     // 动画结束后设置最终类名和文字结果
     setTimeout(() => {
         const now = new Date();
+        // 历史记录包含时分
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
         decisionHistory.unshift({
@@ -140,7 +146,7 @@ function handleConfirmClick() {
         else coin.classList.add('tie');
 
         document.getElementById('headsCount').textContent = heads;
-        document.getElementById('tailsCount').textContent = tails;
+document.getElementById('tailsCount').textContent = tails;
 
         displayHistory();
 

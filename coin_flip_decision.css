@@ -96,6 +96,23 @@ body {
 }
 
 
+/* 结果卡片样式优化 */
+#resultCard {
+    line-height: 1.4;
+}
+
+#resultCard h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.date-text {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9em;
+}
+
 /* 原有样式继续 */
 
 .small-text {
