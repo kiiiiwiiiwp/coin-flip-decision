@@ -13,12 +13,21 @@
     <button id="confirmBtn">确认</button>
     <div id="resultCard" style="display: none;">
         <h2 id="itemDisplay"></h2>
-        <div id="majorityResult"></div>
+        <div class="coin-container">
+            <div id="coin" class="coin">
+                <div class="side heads"></div>
+                <div class="side tails"></div>
+            </div>
+        </div>
+        <!-- 移除硬币下方的文字结果 -->
         <p class="small-text">正面: <span id="headsCount"></span> 次 / 反面: <span id="tailsCount"></span> 次</p>
     </div>
 
     <div id="historySection">
         <h2>历史记录</h2>
+        <div class="history-controls">
+            <button id="clearHistoryBtn" style="display: none;">清除历史记录</button>
+        </div>
         <div id="historyContainer"></div>
     </div>
     <script src="coin_flip_decision.js"></script>
