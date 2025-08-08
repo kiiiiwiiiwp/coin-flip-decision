@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>抛硬币</title>
-    <link rel="stylesheet" href="/coin-flip-decision/coin_flip_decision.css">
+    <link rel="stylesheet" href="coin_flip_decision.css">
 </head>
 <body>
     <h1>抛硬币</h1>
-<div class="input-group">
     <input type="text" id="decisionItem" placeholder="输入需要决定的事项">
     <input type="number" id="flipCount" placeholder="输入抛硬币的次数" min="1">
     <button id="confirmBtn">确认</button>
-</div>
     <div id="resultCard" style="display: none;">
         <h2 id="itemDisplay"></h2>
         <div class="coin-container">
@@ -32,6 +30,6 @@
         </div>
         <div id="historyContainer"></div>
     </div>
-    <script src="/coin-flip-decision/coin_flip_decision.js"></script>
+    <script src="coin_flip_decision.js"></script>
 </body>
 </html>

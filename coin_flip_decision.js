@@ -3,6 +3,7 @@ let decisionHistory = JSON.parse(localStorage.getItem('coinFlipHistory')) || [];
 
 // 显示历史记录
 function displayHistory() {
+    console.log('历史记录数据:', decisionHistory);
     const historyContainer = document.getElementById('historyContainer');
     const clearHistoryBtn = document.getElementById('clearHistoryBtn');
     if (!historyContainer || !clearHistoryBtn) return;
@@ -22,17 +23,17 @@ function displayHistory() {
     decisionHistory.forEach((item, index) => {
         const listItem = document.createElement('li');
         listItem.className = 'history-item';
-        listItem.innerHTML = \`
+        listItem.innerHTML = `
             <div class="history-item-header">
-                <span class="history-index">#\${decisionHistory.length - index}</span>
-                <span class="history-date">\${item.date}</span>
+                <span class="history-index">#${decisionHistory.length - index}</span>
+                <span class="history-date">${item.date}</span>
             </div>
             <div class="history-item-content">
-                <p><strong>决策事项:</strong> \${item.decisionItem}</p>
-                <p><strong>投掷次数:</strong> \${item.flipCount}</p>
-                <p><strong>结果:</strong> \${item.winner}（正面 \${item.heads} 次, 反面 \${item.tails} 次）</p>
+                <p><strong>决策事项:</strong> ${item.decisionItem}</p>
+                <p><strong>投掷次数:</strong> ${item.flipCount}</p>
+                <p><strong>结果:</strong> ${item.winner}（正面 ${item.heads} 次, 反面 ${item.tails} 次）</p>
             </div>
-        \`;
+        `;
         historyList.appendChild(listItem);
     });
 
@@ -42,7 +43,26 @@ function displayHistory() {
 // 添加动画状态标志
 let isAnimating = false;
 
-document.getElementById('confirmBtn').addEventListener('click', function() {
+// 页面加载完成后执行
+window.addEventListener('DOMContentLoaded', function() {
+    // 检查确认按钮元素是否存在
+    const confirmBtn = document.getElementById('confirmBtn');
+    console.log('确认按钮元素:', confirmBtn);
+    if (confirmBtn) {
+        console.log('确认按钮事件监听器已绑定');
+        // 添加点击事件监听器
+        confirmBtn.addEventListener('click', function() {
+            console.log('确认按钮被点击');
+            handleConfirmClick();
+        });
+    } else {
+        console.log('未找到确认按钮元素');
+    }
+});
+
+// 处理确认按钮点击事件的函数
+function handleConfirmClick() {
+    console.log('isAnimating:', isAnimating);
     if (isAnimating) return;
 
     const decisionItem = document.getElementById('decisionItem').value;
@@ -60,10 +80,22 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
     document.getElementById('itemDisplay').textContent = decisionItem;
 
     const coin = document.getElementById('coin');
+    // 完全重置硬币状态
+    // 1. 移除过渡动画
+    coin.style.transition = 'none';
+    // 2. 设置初始位置
+    coin.style.transform = 'rotateY(0deg)';
+    // 3. 强制重绘
+    coin.offsetHeight;
+    // 4. 恢复过渡动画
+    coin.style.transition = '';
+    // 5. 移除所有状态类
     coin.classList.remove('flipping', 'heads', 'tails', 'tie');
     document.getElementById('headsCount').textContent = '';
     document.getElementById('tailsCount').textContent = '';
-    void coin.offsetWidth; // 强制重绘
+
+    // 随机圈数用于动画 (增加圈数范围以确保足够的翻转效果)
+    const randomFlips = 10 + Math.floor(Math.random() * 8); // 10-17圈
 
     // 抛硬币逻辑（先算结果）
     let heads = 0;
@@ -76,20 +108,19 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
     if (heads > tails) winner = 'YES';
     else if (tails > heads) winner = 'NO';
 
-    // 随机圈数用于动画
-    const randomFlips = 7 + Math.floor(Math.random() * 6); // 7-12圈
+    // 已在前面设置randomFlips变量
     let finalAngle = randomFlips * 360;
 
     if (winner === 'NO') finalAngle += 180;
 
     // 应用动画（与结果同步）
-    coin.style.transform = \`rotateY(\${finalAngle}deg)\`;
+    coin.style.transform = `rotateY(${finalAngle}deg)`;
     coin.classList.add('flipping');
 
     // 动画结束后设置最终类名和文字结果
     setTimeout(() => {
         const now = new Date();
-        const formattedDate = \`\${now.getFullYear()}-\${(now.getMonth() + 1).toString().padStart(2, '0')}-\${now.getDate().toString().padStart(2, '0')} \${now.getHours().toString().padStart(2, '0')}:\${now.getMinutes().toString().padStart(2, '0')}\`;
+        const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
         decisionHistory.unshift({
             decisionItem,
@@ -116,11 +147,11 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
         document.getElementById('decisionItem').value = '';
         document.getElementById('flipCount').value = '';
 
-        setTimeout(() => {
-            isAnimating = false;
-        }, 500);
+        isAnimating = false;
     }, 3000);
-});
+}
+
+// 确认按钮事件监听器已在DOMContentLoaded中绑定
 
 // 清除历史记录功能
 function clearHistory() {
